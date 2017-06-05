@@ -1,6 +1,6 @@
 {
-    "name": "template",
-    "short_name": "template",
+    "name": "maintworkorder",
+    "short_name": "maintworkorder",
     "lang": "en-US",
     "start_url": "index.ejs",
     "icons": [
