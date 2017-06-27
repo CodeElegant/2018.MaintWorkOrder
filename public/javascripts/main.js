@@ -304,7 +304,7 @@ class EventHandler {
     }
 
     detectEdit() {
-        document.getElementById('mainForm').addEventListener('input', () => {
+        document.getElementById('problemDesc').addEventListener('input', () => {
             if (document.getElementById('problemDesc').value) {
                 this.setButton(true);
             } else {
@@ -318,14 +318,22 @@ class EventHandler {
 
     handleCompleted() {
         document.getElementById('completed').addEventListener('click', () => {
-            if (document.getElementById('completed').checked) {
-                let password = prompt(`Please enter password: `);
+            let password = prompt(`Please enter password: `);
+            if (password) {
                 this.performAjax('XMLHttpRequest0', password, (response) => {
-                    if (response !== 'true') {
+                    console.log(response);
+                    if (!response || response !== 'true') {
                         alert(`Incorrect password.`);
+                        document.getElementById('submit').classList.add('disabled');
+                        document.getElementById('completed').checked = false;
+                    } else {
+                        document.getElementById('submit').classList.add('disabled');
                         document.getElementById('completed').checked = false;
                     }
                 });
+            } else {
+                document.getElementById('submit').classList.add('disabled');
+                document.getElementById('completed').checked = false;
             }
         });
     }

@@ -34,7 +34,7 @@ class DataHandler {
     }
 
     static handlePassword(password, callback) {
-        const PASSWORD = '1234';
+        const PASSWORD = '3579';
         if (password === PASSWORD) {
             callback('true');
         } else {
